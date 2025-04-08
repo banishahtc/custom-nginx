@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: custom-nginx
+  template:
+    metadata:
+      labels:
+        app: custom-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: banishadocker91/my-final-nginx:v2
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/welcome-message.html
+              subPath: welcome-message.html
+          ports:
+            - containerPort: 80
+      volumes:
+        - name: config-volume
+          configMap:
+            name: welcome-message-configmap
+
