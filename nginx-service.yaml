@@ -9,5 +9,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer  # You can use NodePort if LoadBalancer is not supported
+  type: NodePort  # You can use NodePort if LoadBalancer is not supported
 
