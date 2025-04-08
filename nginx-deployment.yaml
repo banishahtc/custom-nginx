@@ -17,8 +17,8 @@ spec:
           image: banishadocker91/my-final-nginx:v2
           volumeMounts:
             - name: config-volume
-              mountPath: /usr/share/nginx/html/welcome-message.html
-              subPath: welcome-message.html
+              mountPath: /usr/share/nginx/html/welcome_message.html
+              subPath: welcome_message.html
           ports:
             - containerPort: 80
       volumes:
