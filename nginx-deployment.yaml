@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: banishadocker91/my-final-nginx:v2
+          image: nginx:alpine
           
           ports:
             - containerPort: 80
