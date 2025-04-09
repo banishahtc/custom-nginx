@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: network-debug
+spec:
+  containers:
+    - name: curl
+      image: curlimages/curl:latest
+      command: ["/bin/sh", "-c"]
+      args:
+        - |
+          echo "🌐 Testing Internet Access...";
+          echo "--- curl to registry-1.docker.io ---";
+          curl -I https://registry-1.docker.io;
+          echo "--- nslookup of registry-1.docker.io ---";
+          nslookup registry-1.docker.io;
+          echo "--- ping google.com ---";
+          ping -c 4 google.com;
+          echo "✅ Test Completed.";
+          sleep 3600
